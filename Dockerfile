@@ -6,7 +6,6 @@ ARG DEBIAN_DIST
 ARG BUILD_VERSION
 ARG FULL_VERSION
 
-https://ziglang.org/builds/zig-x86_64-linux-0.15.0-dev.936+fc2c1883b.tar.xz
 RUN apt update && apt install -y build-essential pandoc python3-html2text wget 
 RUN wget -q "https://ziglang.org/builds/zig-x86_64-linux-$ZIG_VERSION.tar.xz" && tar -xf "zig-x86_64-linux-$ZIG_VERSION.tar.xz" -C /opt && rm "zig-x86_64-linux-$ZIG_VERSION.tar.xz"
 RUN cp "/opt/zig-x86_64-linux-$ZIG_VERSION/zig" /usr/bin/
