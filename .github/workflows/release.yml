@@ -48,7 +48,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           draft: true
-          files: zig_*.deb
+          files: zig-master_*.deb
           name: ${{ inputs.zig_version }}+${{ inputs.build_version }}
           tag_name: ${{ env.RELEASE_TAG }}
           fail_on_unmatched_files: true
