@@ -8,9 +8,9 @@ ARG FULL_VERSION
 
 RUN apt update && apt install -y build-essential pandoc python3-html2text wget 
 RUN wget -q "https://ziglang.org/builds/zig-x86_64-linux-$ZIG_VERSION.tar.xz" && tar -xf "zig-x86_64-linux-$ZIG_VERSION.tar.xz" -C /opt && rm "zig-x86_64-linux-$ZIG_VERSION.tar.xz"
-RUN mkdir -p /output/usr/lib/zig/$ZIG_VERSION
-RUN cp "/opt/zig-x86_64-linux-$ZIG_VERSION/zig" /output/usr/lib/zig/$ZIG_VERSION/
-RUN cp -r "/opt/zig-x86_64-linux-$ZIG_VERSION/lib" /output/usr/lib/zig/$ZIG_VERSION/
+RUN mkdir -p /output/usr/lib/zig/master
+RUN cp "/opt/zig-x86_64-linux-$ZIG_VERSION/zig" /output/usr/lib/zig/master/
+RUN cp -r "/opt/zig-x86_64-linux-$ZIG_VERSION/lib" /output/usr/lib/zig/master/
 
 RUN mkdir -p /output/DEBIAN
 RUN mkdir -p /output/usr/share/doc/zig-master/
