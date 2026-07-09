@@ -34,7 +34,7 @@ jobs:
 
 
   release-zig:
-    name: (Draft-)Release zig for Debian
+    name: Release zig for Debian
     if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build-zig
@@ -44,12 +44,12 @@ jobs:
         with:
           name: artifact
 
-      - name: Publish Release Draft
+      - name: Publish Release
         uses: softprops/action-gh-release@v2
         with:
-          draft: true
+          draft: false
           files: zig-master_*.deb
           name: ${{ inputs.zig_version }}+${{ inputs.build_version }}
-          tag_name: ${{ env.RELEASE_TAG }}
+          tag_name: ${{ inputs.zig_version }}+${{ inputs.build_version }}
           fail_on_unmatched_files: true
 
